@@ -16,21 +16,31 @@ struct Task{
 
 class ToDoListDataBase {
     static var taskDataBase: [Task]?
-    
     //load task from data base
-    static func load() {
-        if let tasks = UserDefaults.standard.value(forKey: "Tasks_DataBase") as? [Task]{
-            ToDoListDataBase.taskDataBase = tasks
+    static func load() -> [Task]? {
+        if let data = UserDefaults.standard.data(forKey: "Tasks_DataBase"),
+        let tasksDB = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Task]?{
+            taskDataBase = tasksDB
+        } else {
+            print("There is an issue 1")
         }
+        return taskDataBase
     }
     
     //adding task to database
     static func add(task: Task){
         if (ToDoListDataBase.taskDataBase?.append(task) == nil){
             ToDoListDataBase.taskDataBase = [task]
-            UserDefaults.standard.set(task, forKey: "Tasks_DataBase")
         }
         
+        if let toDoListDB = ToDoListDataBase.taskDataBase{
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: toDoListDB)
+            UserDefaults.standard.set(encodedData, forKey: "Tasks_DataBase")
+        } else{
+            print("There is an issue 2")
+        }
     }
 }
+
+
 
