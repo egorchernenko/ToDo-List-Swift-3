@@ -9,9 +9,27 @@
 import Foundation
 import UIKit
 
-struct Task{
+class Task: NSObject, NSCoding{
+    
+   
     var string: String
     var check: Bool
+    
+
+    init(string: String, check: Bool) {
+        self.string = string
+        self.check = check
+    }
+    
+    required init(coder decoder:NSCoder) {
+        self.string = decoder.decodeObject(forKey: "string") as? String ?? ""
+        self.check = decoder.decodeBool(forKey: "check")
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(string, forKey: "string")
+        aCoder.encode(check, forKey: "check")
+    }
+    
 }
 
 class ToDoListDataBase {

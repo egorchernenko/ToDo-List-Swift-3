@@ -101,6 +101,7 @@ extension ToDoListViewController: UITextFieldDelegate{
         if let str = textField.text{
             if str.characters.count > 0 {
                 ToDoListDataBase.add(task: Task(string: str, check: false))
+                toDoListDB = ToDoListDataBase.load()
             }
         }
         
