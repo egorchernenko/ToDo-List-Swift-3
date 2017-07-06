@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		74160D961F08DF0B00169FAD /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74160D951F08DF0B00169FAD /* ShoppingListViewController.swift */; };
 		74160D981F08DF2100169FAD /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74160D971F08DF2100169FAD /* ShoppingListTableViewCell.swift */; };
+		74160DB91F0E8E5900169FAD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74160DB81F0E8E5900169FAD /* Model.swift */; };
 		7466FD581F07991800C377C2 /* CompletedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7466FD571F07991800C377C2 /* CompletedTableViewCell.swift */; };
 		7466FD5A1F07993000C377C2 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7466FD591F07993000C377C2 /* CompletedViewController.swift */; };
 		74A29C911F042DA9004794F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29C901F042DA9004794F3 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		74160D951F08DF0B00169FAD /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		74160D971F08DF2100169FAD /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		74160DB81F0E8E5900169FAD /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7466FD571F07991800C377C2 /* CompletedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTableViewCell.swift; sourceTree = "<group>"; };
 		7466FD591F07993000C377C2 /* CompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		74A29C8D1F042DA9004794F3 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +56,14 @@
 			name = "Shopping List";
 			sourceTree = "<group>";
 		};
+		74160DB71F0E8E3B00169FAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74160DB81F0E8E5900169FAD /* Model.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		7466FD561F07984100C377C2 /* completedToDoList */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +92,9 @@
 		74A29C8F1F042DA9004794F3 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				74160D941F08DED800169FAD /* Shopping List */,
+				74160DB71F0E8E3B00169FAD /* Model */,
 				74A29CA31F0436EE004794F3 /* toDoListFiles */,
+				74160D941F08DED800169FAD /* Shopping List */,
 				74A29CA21F0436E2004794F3 /* Support */,
 				74A29C941F042DA9004794F3 /* Main.storyboard */,
 			);
@@ -190,6 +201,7 @@
 				74A29C911F042DA9004794F3 /* AppDelegate.swift in Sources */,
 				7466FD5A1F07993000C377C2 /* CompletedViewController.swift in Sources */,
 				7466FD581F07991800C377C2 /* CompletedTableViewCell.swift in Sources */,
+				74160DB91F0E8E5900169FAD /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
