@@ -11,10 +11,8 @@ import UIKit
 
 class Task: NSObject, NSCoding{
     
-   
     var string: String
     var check: Bool
-    
 
     init(string: String, check: Bool) {
         self.string = string
@@ -34,19 +32,20 @@ class Task: NSObject, NSCoding{
 
 class ToDoListDataBase {
     static var taskDataBase: [Task]?
+    
     //load task from data base
-    static func load() -> [Task]? {
+    static func load() -> [Task]?
+    {
         if let data = UserDefaults.standard.data(forKey: "Tasks_DataBase"),
         let tasksDB = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Task]?{
             taskDataBase = tasksDB
-        } else {
-            print("There is an issue 1")
         }
         return taskDataBase
     }
     
     //adding task to database
-    static func add(task: Task){
+    static func add(task: Task)
+    {
         if (ToDoListDataBase.taskDataBase?.append(task) == nil){
             ToDoListDataBase.taskDataBase = [task]
         }
@@ -54,8 +53,27 @@ class ToDoListDataBase {
         if let toDoListDB = ToDoListDataBase.taskDataBase{
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: toDoListDB)
             UserDefaults.standard.set(encodedData, forKey: "Tasks_DataBase")
-        } else{
-            print("There is an issue 2")
+        }
+    }
+    
+    //delete from database
+    static func delete(at index: Int)
+    {
+        ToDoListDataBase.taskDataBase?.remove(at: index)
+        
+        if let toDoListDB = ToDoListDataBase.taskDataBase{
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: toDoListDB)
+            UserDefaults.standard.set(encodedData, forKey: "Tasks_DataBase")
+        }
+    }
+    
+    static func isCheck(at index: Int, state: Bool)
+    {
+        ToDoListDataBase.taskDataBase?[index].check = state
+        
+        if let toDoListDB = ToDoListDataBase.taskDataBase{
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: toDoListDB)
+            UserDefaults.standard.set(encodedData, forKey: "Tasks_DataBase")
         }
     }
 }

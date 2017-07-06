@@ -60,6 +60,12 @@ extension ToDoListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ToDoListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "toDoListCellIdentifier", for: indexPath) as! ToDoListTableViewCell
         cell.itemLabel.text = toDoListDB?[indexPath.row].string
+        
+        if let check = toDoListDB?[indexPath.row].check{
+            if check{
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
+        }
         return cell
     }
     
@@ -76,23 +82,23 @@ extension ToDoListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            ToDoListDataBase.taskDataBase?[indexPath.row].check = false //!!!!!!
+            ToDoListDataBase.isCheck(at: indexPath.row, state: false)
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            ToDoListDataBase.taskDataBase?[indexPath.row].check = true //!!!!!!!
+            ToDoListDataBase.isCheck(at: indexPath.row, state: true)
         }
     }
-}
 
 
     //delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            //ToDoListDataBase.taskDataBase?.remove(at: indexPath.row) !!!!!!
-            //UserDefaults.standard.set(arr, forKey: "ToDoList_STORAGE") !!!!!
+            ToDoListDataBase.delete(at: indexPath.row)
+            toDoListDB = ToDoListDataBase.load()
         }
         tableView.reloadData()
     }
+}
 
 
 // MARK: -
