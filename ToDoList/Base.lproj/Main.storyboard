@@ -258,11 +258,11 @@
             </objects>
             <point key="canvasLocation" x="-387" y="160"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ToDo-->
         <scene sceneID="ga8-dN-5He">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z30-Jb-TsK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="a3D-s2-TWl"/>
+                    <tabBarItem key="tabBarItem" title="ToDo" image="business" id="a3D-s2-TWl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oVC-IO-pDX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -277,11 +277,11 @@
             </objects>
             <point key="canvasLocation" x="565.60000000000002" y="-183.05847076461771"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Shopping-->
         <scene sceneID="EZE-mA-hvt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lLI-cE-VU2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="VRU-14-jMV"/>
+                    <tabBarItem key="tabBarItem" title="Shopping" image="001-bag" selectedImage="001-bag" id="VRU-14-jMV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nBH-CP-IMQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -297,4 +297,8 @@
             <point key="canvasLocation" x="565.60000000000002" y="486.20689655172418"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="001-bag" width="32" height="32"/>
+        <image name="business" width="32" height="32"/>
+    </resources>
 </document>

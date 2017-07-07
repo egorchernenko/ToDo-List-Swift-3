@@ -12,7 +12,8 @@ class CompletedViewController: UIViewController {
 
     
     // MARK: - Properties
-    
+    var toDoListCompletedDB: [Task]?
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -28,25 +29,24 @@ class CompletedViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        if let items = UserDefaults.standard.value(forKey: "toDoList_Completed_Task_STORAGE") as? [String]{
-//            completed = items
-//        }
+        toDoListCompletedDB = ToDoListDataBase.load()
+        if let completedeDataBase = toDoListCompletedDB{
+            toDoListCompletedDB?.removeAll()
+            for el in completedeDataBase{
+                if el.check {
+                    toDoListCompletedDB?.append(el)
+                }
+            }
+        }
         self.tableView.reloadData()
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
     
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        self.tableView.reloadData()
-//    }
-//    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete{
-//            completed?.remove(at: indexPath.row)
-//            UserDefaults.standard.set(completed, forKey: "toDoList_Completed_Task_STORAGE")
-//        }
-//        tableView.reloadData()
-//    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.tableView.reloadData()
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -64,12 +64,12 @@ class CompletedViewController: UIViewController {
 
 extension CompletedViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//completed?.count ?? 0
+        return toDoListCompletedDB?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CompletedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CompletedTableViewCellIdentifier", for: indexPath) as! CompletedTableViewCell
-        cell.completedCellLabel.text = "test"//completed?[indexPath.row]
+        cell.completedCellLabel.text = toDoListCompletedDB?[indexPath.row].string
         
         return cell
     }
