@@ -50,10 +50,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReT-Em-IJk">
+                                                    <rect key="frame" x="345" y="10" width="22" height="22"/>
+                                                    <connections>
+                                                        <segue destination="9EY-C1-81b" kind="show" id="IU8-Ne-eQS"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fCP-Do-eC5" firstAttribute="centerY" secondItem="NWo-au-Vg4" secondAttribute="centerY" id="3mE-eM-G7I"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ReT-Em-IJk" secondAttribute="trailing" id="BNW-Nv-aKW"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="fCP-Do-eC5" secondAttribute="leading" id="Xj6-Xm-CCi"/>
+                                                <constraint firstItem="ReT-Em-IJk" firstAttribute="centerY" secondItem="NWo-au-Vg4" secondAttribute="centerY" id="wh1-YN-uui"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -84,6 +92,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aoa-sC-Sh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504.8" y="486.20689655172418"/>
+        </scene>
+        <!--Goods Preference View Controller-->
+        <scene sceneID="X90-ii-aO1">
+            <objects>
+                <viewController id="9EY-C1-81b" customClass="GoodsPreferenceViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qh2-QF-KYD"/>
+                        <viewControllerLayoutGuide type="bottom" id="hmA-Yx-m3H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pal-DA-kH7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dB8-xf-k3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2366" y="488"/>
         </scene>
         <!--ToDoList-->
         <scene sceneID="6iV-Ef-rfG">

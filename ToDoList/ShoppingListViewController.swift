@@ -11,7 +11,6 @@ import UIKit
 class ShoppingListViewController: UIViewController {
     
     var shoppingListArray: [String]?
-    var shoppingListPriceArray: [Double]?
 
     @IBOutlet weak var shoppingListTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -55,13 +54,12 @@ class ShoppingListViewController: UIViewController {
 
 extension ShoppingListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shoppingListArray?.count ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ShoppingListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListTabelViewcellIndetifier", for: indexPath) as! ShoppingListTableViewCell
-        cell.shoppingListLabel.text = shoppingListArray?[indexPath.row]
-        cell.accessoryType = UITableViewCellAccessoryType.detailButton 
+        cell.shoppingListLabel.text = "test"
         
         return cell
     }
